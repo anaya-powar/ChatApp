@@ -2,10 +2,34 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChatApp</title>
+    <title>ChatApp | Home</title>
+   
 </head>
 <body>
-    <h2> Welcome to my ChatApp</h2>
+
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loader"></div>
+        <p>Loading ChatApp...</p>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1>Welcome to ChatApp</h1>
+        <p>Start messaging now!</p>
+        <a href="chat.html" class="btn">Go to Chat</a>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            setTimeout(function () {
+                document.getElementById("loading-screen").style.display = "none"; // Hide loader
+                document.querySelector(".container").style.display = "block"; // Show main content
+            }, 2000); // 2-second loading animation
+        });
+    </script>
+
 </body>
 </html>
