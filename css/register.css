@@ -1,0 +1,41 @@
+/* style.css */
+body {
+    background: #f3f4f6;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .card {
+    border-radius: 1rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  h3 {
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .form-label {
+    font-weight: 500;
+  }
+  
+  .btn {
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .register-page {
+    background: #f0f9ff; /* light blue */
+  }
+  
+  .login-page {
+    background: #fff7f0; /* warm beige */
+  }
+  

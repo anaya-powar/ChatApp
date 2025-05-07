@@ -4,111 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChatApp | Home</title>
-
-    <a href="login.html"><button>Login</button></a>
-    <a href="register.html"><button>Register</button></a>
-    <style>
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-
-        body {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            background-color: #ecf0f1;
-            text-align: center;
-        }
-
-        /* Loader Styling */
-        #loading-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            z-index: 1000;
-        }
-
-        .loader {
-            width: 50px;
-            height: 50px;
-            border: 5px solid #3498db;
-            border-top: 5px solid transparent;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        /* Hide content initially */
-        .container {
-            display: none;
-            padding: 20px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        h1 {
-            color: #3498db;
-        }
-
-        p {
-            margin: 10px 0;
-            color: #555;
-        }
-
-        .btn {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 10px 20px;
-            background: #3498db;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: 0.3s;
-        }
-
-        .btn:hover {
-            background: #2980b9;
-        }
+    <link rel="stylesheet" href="css/index.css">
     
-
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-
-        body {
-            display: flex;
-            height: 100vh;
-            background-color: #1e2a34;
-        }
-
-    </style>
-   
 </head>
 <body>
 
-    <!-- Loading Screen -->
+    <!-- Loader -->
     <div id="loading-screen">
         <div class="loader"></div>
         <p>Loading ChatApp...</p>
@@ -118,17 +19,20 @@
     <div class="container">
         <h1>Welcome to ChatApp</h1>
         <p>Start messaging now!</p>
-        <a href="chat.html" class="btn">Go to Chat</a>
+        <div class="btn-container">
+            <a href="login.html" class="btn">Login</a>
+            <a href="register.html" class="btn">Register</a>
+        </div>
     </div>
 
+    <!-- Script for Loader -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             setTimeout(function () {
-                document.getElementById("loading-screen").style.display = "none"; // Hide loader
-                document.querySelector(".container").style.display = "block"; // Show main content
-            }, 2000); // 2-second loading animation
+                document.getElementById("loading-screen").style.display = "none";
+                document.querySelector(".container").style.display = "block";
+            }, 2000);
         });
     </script>
-
 </body>
 </html>
