@@ -27,24 +27,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->bind_result($id, $username, $hashed_password);
             if ($stmt->fetch()) {
                 if (password_verify($password, $hashed_password)) {
-                    // Password is correct, start a new session
-                    session_start();
+                    // Password is correct, store data in session
                     $_SESSION["loggedin"] = true;
                     $_SESSION["id"] = $id;
                     $_SESSION["username"] = $username;
 
-                    // Redirect to welcome page
-                    echo "<script>alert('Login successful!'); window.location.href='chat.html';</script>";
+                    // Redirect to chat page
+                    echo "<script>
+                        alert('Login successful!');
+                        window.location.href='chat.php';
+                    </script>";
                     exit;
 
                 } else {
-                    // Display an error message if password is not valid
                     echo "Invalid password.";
                     exit;
                 }
             }
         } else {
-            // Display an error message if email doesn't exist
             echo "No account found with that email.";
             exit;
         }
@@ -53,12 +53,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Something went wrong. Please try again later.";
         exit;
     }
-    
 
     $conn->close();
 }
-
-
 ?>
 
 
@@ -90,7 +87,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               </div>
               <button type="submit" class="btn btn-primary w-100">Login</button>
               <p class="text-center mt-3">
-                Don't have an account? <a href="register.html">Register here</a>
+                Don't have an account? <a href="register.php">Register here</a>
               </p>
             </form>
           </div>

@@ -55,7 +55,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($stmt) {
         $stmt->bind_param("ssssss", $first_name, $last_name, $username, $email, $dob, $hashed_password);
         if ($stmt->execute()) {
-            echo "<script>alert('Registration successful!'); window.location.href='../login.php';</script>";
+            // Get new user ID and auto-login
+            $new_user_id = $stmt->insert_id;
+
+            // Set session variables
+            $_SESSION["loggedin"] = true;
+            $_SESSION["id"] = $new_user_id;
+            $_SESSION["username"] = $username;
+
+            // Redirect to chat
+            echo "<script>alert('Registration successful! Redirecting to chat...'); window.location.href='chat.php';</script>";
             exit;
         } else {
             echo "Execute failed: " . $stmt->error;
@@ -126,7 +135,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               <button type="submit" class="btn btn-success w-100">Register</button>
 
               <p class="text-center mt-3">
-                Already have an account? <a href="../login.php">Login here</a>
+                Already have an account? <a href="login.php">Login here</a>
               </p>
             </form>
           </div>
